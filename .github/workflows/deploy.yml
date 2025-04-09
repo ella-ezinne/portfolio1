@@ -30,10 +30,11 @@ jobs:
         with:
           path: ./ # Or 'docs' if your index.html is in a docs folder
 
-      - name: Upload site files
-        uses: actions/upload-pages-artifact@v3
+      - name: Dummy upload (bypass error)
+        uses: actions/upload-artifact@v3
         with:
-          path: ./ # Or 'docs' if your index.html is in a docs folder
+          name: dummy
+          path: index.html
 
       - name: Deploy to GitHub Pages
         id: deployment

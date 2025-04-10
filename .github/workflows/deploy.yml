@@ -5,11 +5,6 @@ on:
     branches:
       - main
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -18,20 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages 🚀
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-
-      - name: Upload site files
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: ./ # Or 'docs' if your index.html is in a docs folder
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+      
